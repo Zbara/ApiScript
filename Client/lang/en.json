@@ -1,0 +1,216 @@
+{
+  "lang": [
+    {
+      "key": "common",
+      "text": "Zbara Stats-Settings"
+    },
+    {
+      "key": "note-general",
+      "text": "extension basic settings."
+    },
+    {
+      "key": "text-stats",
+      "text": "Statistics"
+    },
+    {
+      "key": "text-start",
+      "text": "General"
+    },
+    {
+      "key": "text-advanced",
+      "text": "advanced settings"
+    },
+    {
+      "key": "text-account",
+      "text": "Accounts"
+    },
+    {
+      "key": "other-name",
+      "text": "sin extension"
+    },
+    {
+      "key": "count-stats",
+      "text": "Number of checks"
+    },
+    {
+      "key": "count-stats-help",
+      "text": "how many times do the script checks on the page  pminimu 1, maximum 20, default 5"
+    },
+    {
+      "key": "power",
+      "text": "including"
+    },
+    {
+      "key": "power-help",
+      "text": "enable / disable the extension "
+    },
+    {
+      "key": "save-general",
+      "text": "Save settings"
+    },
+    {
+      "key": "info-menu-stats",
+      "text": "script Statistics"
+    },
+    {
+      "key": "info-panel-body",
+      "text": "on this page, all notifications of advertising are selected by statistics, for all the work of the\n extension. "
+    },
+    {
+      "key": "ads-count",
+      "text": "ads Displayed"
+    },
+    {
+      "key": "my-ads-title",
+      "text": "the number of Ads that were displayed"
+    },
+    {
+      "key": "table-domain-stats",
+      "text": "Domain"
+    },
+    {
+      "key": "table-messages-stats",
+      "text": "Message"
+    },
+    {
+      "key": "table-time-stats",
+      "text": "Time will tell"
+    },
+    {
+      "key": "advanced-title-sites",
+      "text": "Vedic monitoring on the site"
+    },
+    {
+      "key": "advanced-title-placeholder",
+      "text": "with a remarkable imagination, www.example.com",
+      "type": "placeholder"
+    },
+    {
+      "key": "advanced-add-buttons",
+      "text": "Add"
+    },
+    {
+      "key": "advanced-table-domain",
+      "text": "Domain"
+    },
+    {
+      "key": "advanced-table-no-sites",
+      "text": "You, do not smoke, added on the site."
+    },
+    {
+      "key": "account-title",
+      "text": "your personal account, that poor account? For syncing your settings, but the extension can work as well."
+    },
+    {
+      "type": "title",
+      "text": "Zbara Stats - Settings"
+    },
+    {
+      "type": "initSystem"
+    }
+  ],
+  "langKeys": {
+    "local": {
+      "common": "Zbara Stats-Settings",
+      "global_date": [
+        "",
+        "{day} {month} {year}",
+        "yesterday",
+        "touch",
+        "tomorrow"
+      ],
+      "global_hours_ago": [
+        "",
+        "%s hours ago",
+        "%s an hour ago",
+        "%s hours ago"
+      ],
+      "global_just_now": "just now",
+      "global_mins_ago": [
+        "",
+        "%s a minute ago",
+        "%s minutes ago",
+        "%s minutes ago"
+      ],
+      "global_secs_ago": [
+        "",
+        "%s a second ago",
+        "%s seconds ago",
+        "%s seconds ago"
+      ],
+      "global_short_date": [
+        "",
+        "{day} {month}",
+        "yesterday",
+        "touch",
+        "tomorrow"
+      ],
+      "global_short_date_time": [
+        "",
+        "{day} {month} in {hour}:{minute}",
+        "yesterday at {hour}:{minute}",
+        "in {hour}:{minute}",
+        "tomorrow at {hour}: {minute}"
+      ],
+      "global_short_date_time_l": [
+        "",
+        "{day} {month} in {hour}:{minute}",
+        "yesterday at {hour}:{minute}",
+        "in {hour}:{minute}",
+        "tomorrow at {hour}: {minute}"
+      ],
+      "global_word_hours_ago": [
+        "",
+        "an hour ago",
+        "an hour or two ago",
+        "three hours ago",
+        "four hours ago.",
+        "five hours ago"
+      ],
+      "global_word_mins_ago": [
+        "",
+        "a minute ago",
+        "two minutes ago",
+        "three minutes ago",
+        "4 minutes ago",
+        "5 minutes ago"
+      ],
+      "global_word_secs_ago": [
+        "",
+        "just now",
+        "two seconds ago",
+        "three seconds ago",
+        "four seconds ago",
+        "five seconds ago"
+      ],
+      "months_of": {
+        "1": "January",
+        "2": "February",
+        "3": "March",
+        "4": "April",
+        "5": "may",
+        "6": "June",
+        "7": "July",
+        "8": "August",
+        "9": "September",
+        "10": "October",
+        "11": "November",
+        "12": "December"
+      },
+      "months_sm_of": {
+        "1": "Jan",
+        "2": "Feb",
+        "3": "Mar",
+        "4": "APR",
+        "5": "may",
+        "6": "Noah",
+        "7": "Jul",
+        "8": "Aug",
+        "9": "sedan",
+        "10": "Oct",
+        "11": "tired",
+        "12": "to"
+      }
+    }
+  }
+}

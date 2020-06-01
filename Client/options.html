@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zbara Stats - Настройки</title>
+    <meta charset="utf8">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="css/options.min.css" type="text/css"/>
+    <link rel="stylesheet" href="css/options.min.css" type="text/css"/>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/bootstrap-switch.min.js"></script>
+    <script src="js/options.js"></script>
+    <script src="js/login.js"></script>
+    <style>
+        .modal.fade.in {
+            top: 25%;
+        }
+    </style>
+</head>
+<body>
+<div class="container-zbara">
+    <h4 data-lang-id="common"></h4>
+</div>
+<div class="container-narrow">
+    <ul class="nav nav-tabs" id="myTab">
+        <li class="active">
+            <a href="#UserAgentsTab"><i class="fa fa-database"></i><b data-lang-id="text-start"></b></a>
+        </li>
+        <li>
+            <a href="#StatsTab"><i class="fa fa-bar-chart-o"></i><b data-lang-id="text-stats"></b></a>
+        </li>
+        <li>
+            <a href="#advancedPage"><i class="fa fa-slack"></i> <b data-lang-id="text-advanced"></b></a>
+        </li>
+        <li>
+            <a href="#account"><i class="fa fa-user"></i><b data-lang-id="text-account"></b></a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="UserAgentsTab">
+            <div class="note note-success">
+                <p data-lang-id="note-general"></p>
+            </div>
+            <div class="form-horizontal" role="form">
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" data-lang-id="lang-name"></label>
+                        <div class="col-md-3">
+                            <select class="form-control" id="lang"></select>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-md-3" data-lang-id="count-stats"></label>
+                    <div class="col-md-9">
+                        <div id="BlockCheckCount">
+                            <div class="input-group" style="width:150px;">
+                                <input type="text" class="spinner-input form-control" id="CheckCount" maxlength="3" readonly>
+                                <div class="spinner-buttons input-group-btn">
+                                    <button type="button" class="btn btn-default spinner-up">
+                                        <i class="fa fa-angle-up"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-default spinner-down">
+                                        <i class="fa fa-angle-down"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="help-block" data-lang-id="count-stats-help"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3" data-lang-id="power"></label>
+                    <div class="col-md-9">
+                        <input type="checkbox" class="make-switch" checked data-on-color="success" data-off-color="warning"  value="0">
+                        <span class="help-block" data-lang-id="power-help"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-offset-3 col-md-9">
+                    <button type="submit" class="btn btn-success" data-action="SaveSettings"><i class="fa fa-check"></i> <l data-lang-id="save-general"></l></button>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="StatsTab">
+
+            <div class="panel panel-success">
+                <!-- Default panel contents -->
+                <div class="panel-heading">
+                    <h3 class="panel-title" data-lang-id="info-menu-stats"></h3>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        На этой странице отображена вся статистика рекламных оповещений, за все врмея работы
+                        расширение.
+                    </p>
+                </div>
+                <!-- List group -->
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <label data-lang-id="ads-count"></label> <span class="badge badge-default" id="adsCount"></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title" data-lang-id="my-ads-title"></h3>
+                </div>
+                <table class="table table-condensed table-hover">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th data-lang-id="table-domain-stats"></th>
+                        <th data-lang-id="table-messages-stats"></th>
+                        <th data-lang-id="table-time-stats"></th>
+                    </tr>
+                    </thead>
+                    <tbody id="UserAds_user"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="tab-pane" id="advancedPage">
+            <label><b data-lang-id="advanced-title-sites"></b></label>
+            <div class="input-group">
+                <input type="text" style="width: 568px" class="form-control" id="siteLink" data-lang-id="advanced-title-placeholder">
+                <!--                <input type="text"  style="width: 568px" class="form-control" id="msg" placeholder="Рекламное уведомление">-->
+                <span class="input-group-btn">
+                    <button class="btn btn-success" type="button" data-action="NewSiteLink" data-lang-id="advanced-add-buttons">Добавить</button>
+                </span>
+            </div>
+            <br/>
+            <table class="table table-condensed table-hover" style="display: none" id="domainListDiv">
+                <thead>
+                <tr>
+                    <th>
+                        #
+                    </th>
+                    <th data-lang-id="advanced-table-domain"></th>
+                    <!--                    <th>-->
+                    <!--                        Сообщение-->
+                    <!--                    </th>-->
+                    <th>
+                    </th>
+                </tr>
+                </thead>
+                <tbody id="checkSite_div"></tbody>
+            </table>
+            <div class="note note-success" style="display: none" id="domainListDiv_no">
+                <p data-lang-id="advanced-table-no-sites"></p>
+            </div>
+        </div>
+        <div class="tab-pane" id="account">
+            <div class="note note-success">
+                <p data-lang-id="account-title"></p>
+            </div>
+            <h4 data-lang-id="account-title-login">Войти в свой аккаунт</h4>
+            <div class="form-horizontal" role="form" data-id="account-login">
+                <div class="alert display-hide" id="alert"></div>
+                <div class="form-group">
+                    <label for="email" class="col-md-2 control-label">Email</label>
+                    <div class="col-md-4">
+                        <input type="email" class="form-control" id="email" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-md-2 control-label">Пароль</label>
+                    <div class="col-md-4">
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group right">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" class="btn btn-info" data-action="AuthStart">Войти</button>
+                        <button type="submit" class="btn btn-info" data-action="RegPage">Регистрация</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-horizontal" role="form" data-id="account-reg" style="display: none">
+                <div class="alert display-hide" id="alertReg"></div>
+                <div class="form-group">
+                    <label for="join_login" class="col-md-3 control-label">Имя пользователя</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="join_login" placeholder="Имя пользователя">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="join_email" class="col-md-3 control-label">Email</label>
+                    <div class="col-md-4">
+                        <input type="email" class="form-control" id="join_email" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="join_pass" class="col-md-3 control-label">Пароль</label>
+                    <div class="col-md-4">
+                        <input type="password" class="form-control" id="join_pass" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group right">
+                    <div class="col-md-offset-3 col-md-10">
+                        <button type="submit" class="btn btn-info" data-action="RegStart">Регистрация</button>
+                        <button type="submit" class="btn btn-info" data-action="AuthStart_back">Назад</button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-success" data-account-login="info" style="display: none">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Информация о вашем аккаунте <a style="float: right; cursor: pointer" data-action="logout">Выйти</a></h3>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item">Номер аккаунта <span class="badge badge-success" data-account-user="id"></span>
+                    </li>
+                </ul>
+                <ul class="list-group">
+                    <li class="list-group-item">Имя пользователя <span class="badge badge-success" data-account-user="login"></span>
+                    </li>
+                </ul>
+                <ul class="list-group">
+                    <li class="list-group-item">Email <span class="badge badge-success" data-account-user="email"></span>
+                    </li>
+                </ul>
+
+                <ul class="list-group">
+                    <li class="list-group-item">Последняя синхронизация с сервером <span class="badge badge-success" data-account-user="server"></span>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>2020 © Zbarazskiy</p>
+</div>
+
+<div id="groupModalWindow" class="modal hide fade">
+    <div class="modal-body">
+        <label for="GroupName"><b>Group name</b></label>
+        <input class="input-block-level" id="GroupName" name="GroupName" type="text" value=""/>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button data-action="SaveGroup" class="btn btn-success">Save</button>
+    </div>
+</div>
+
+<div id="userAgentModalWindow" class="modal hide fade">
+    <div class="modal-body">
+        <input id="UserAgentId" type="hidden" value=""/>
+        <label for="UserAgentName"><b>Имя фильтра</b></label>
+        <input class="input-block-level" id="UserAgentName" name="UserAgentName" type="text" value=""/>
+        <label for="UserAgentString"><b>Фильтр</b></label>
+        <input class="input-block-level" id="UserAgentString" name="UserAgentString" type="text" value=""/>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button data-action="SaveUserAgent" class="btn btn-success">Save</button>
+    </div>
+</div>
+</body>
+</html>
