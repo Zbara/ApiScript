@@ -15,6 +15,10 @@
         "2ip.ru":{
             'div': ".img_ad",
             "type": 'img'
+        },
+        "e.mail.ru":{
+            'div': ".mailru-visibility-check",
+            "type": 'text'
         }
     };
  
@@ -43,6 +47,7 @@
         setInterval(function () {
             let a = $(adsBlock[api.domains.name].div);
             let reg = api.domains.msg;
+
 
             /** ищим текст */
             a.each(function () {

@@ -24,7 +24,7 @@
       "page": "options.html"
    },
    "description": "Расширение для мониторинга рекламы на сайтах",
-   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self' 'unsafe-inline'",
+   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
    "optional_permissions": [ "contentSettings", "management" ],
    "icons": {
       "128": "images/icon_128.png",

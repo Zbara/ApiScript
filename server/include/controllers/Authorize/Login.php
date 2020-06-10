@@ -36,7 +36,6 @@ class Login extends Controller
      */
     private function user($params)
     {
-
         /** @var  $auth */
         $auth = [
             '_origin' => $this->request->server['HTTP_HOST'],
@@ -47,10 +46,9 @@ class Login extends Controller
         /** @var  $user смотрим в БД */
         $user = $this->db->SQLquery("SELECT `user_id`, `user_password` FROM `users` WHERE user_email = '{$params[0]}'", SQL_RESULT_ITEM);
 
-
         /** проверка пароля */
-        if (password_verify($params[1], $user['user_password'])) {
-            $auth['user_id'] = $user['user_id'];
+        if (password_verify($params[1], $user->user_password)) {
+            $auth['user_id'] = $user->user_id;
             $auth['ip'] = $this->request->server['REMOTE_ADDR'];
             return [1, $this->getSession($auth)];
 

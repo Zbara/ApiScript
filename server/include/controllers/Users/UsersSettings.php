@@ -11,16 +11,18 @@ class UsersSettings extends Controller
             $count = $this->request->post['count'];
             $power = ($this->request->post['power'] == 'true') ? 'on' : 'off';
 
-
-
-
-
             $this->db->SQLquery("update `users` set `lang` = '{$lang}', `count` = '{$count}', `power` = '{$power}' WHERE `user_id`= '{$checkUser}'", SQL_RESULT_AFFECTED);
             return ['edit' => 1];
         } else ['error' => 'Error access_token'];
     }
 
-    private function checkToken(){
+
+    /**
+     * @param $s
+     * @param $g
+     * @return mixed
+     */
+    private function checkToken($s,$g){
         /** @var  $access_token */
         $access_token = $this->request->post['access_token'];
 
