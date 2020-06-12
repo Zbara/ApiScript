@@ -12,8 +12,9 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/bootstrap-switch.min.js"></script>
+
+    <script src="js/common.js"></script>
     <script src="js/options.js"></script>
-    <script src="js/login.js"></script>
     <style>
         .modal.fade.in {
             top: 25%;
@@ -126,9 +127,13 @@
         </div>
         <div class="tab-pane" id="advancedPage">
             <label><b data-lang-id="advanced-title-sites"></b></label>
+
+            <div class="alert display-hide" id="alertAddDomain"></div>
+
+
             <div class="input-group">
                 <input type="text" style="width: 568px" class="form-control" id="siteLink" data-lang-id="advanced-title-placeholder">
-                             <input type="text"  style="width: 568px" class="form-control" id="msg" placeholder="Рекламное уведомление">.
+<!--                             <input type="text"  style="width: 568px" class="form-control" id="msg" placeholder="Рекламное уведомление">.-->
                 <span class="input-group-btn">
                     <button class="btn btn-success" type="button" data-action="NewSiteLink" data-lang-id="advanced-add-buttons">Добавить</button>
                 </span>
@@ -155,59 +160,7 @@
             </div>
         </div>
         <div class="tab-pane" id="account">
-            <div class="note note-success">
-                <p data-lang-id="account-title"></p>
-            </div>
-            <h4 data-lang-id="account-title-login">Войти в свой аккаунт</h4>
-            <div class="form-horizontal" role="form" data-id="account-login">
-                <div class="alert display-hide" id="alert"></div>
-                <div class="form-group">
-                    <label for="email" class="col-md-2 control-label">Email</label>
-                    <div class="col-md-4">
-                        <input type="email" class="form-control" id="email" placeholder="Email">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="password" class="col-md-2 control-label">Пароль</label>
-                    <div class="col-md-4">
-                        <input type="password" class="form-control" id="password" placeholder="Password">
-                    </div>
-                </div>
-                <div class="form-group right">
-                    <div class="col-md-offset-2 col-md-10">
-                        <button type="submit" class="btn btn-info" data-action="AuthStart">Войти</button>
-                        <button type="submit" class="btn btn-info" data-action="RegPage">Регистрация</button>
-                    </div>
-                </div>
-            </div>
-            <div class="form-horizontal" role="form" data-id="account-reg" style="display: none">
-                <div class="alert display-hide" id="alertReg"></div>
-                <div class="form-group">
-                    <label for="join_login" class="col-md-3 control-label">Имя пользователя</label>
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" id="join_login" placeholder="Имя пользователя">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="join_email" class="col-md-3 control-label">Email</label>
-                    <div class="col-md-4">
-                        <input type="email" class="form-control" id="join_email" placeholder="Email">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="join_pass" class="col-md-3 control-label">Пароль</label>
-                    <div class="col-md-4">
-                        <input type="password" class="form-control" id="join_pass" placeholder="Password">
-                    </div>
-                </div>
-                <div class="form-group right">
-                    <div class="col-md-offset-3 col-md-10">
-                        <button type="submit" class="btn btn-info" data-action="RegStart">Регистрация</button>
-                        <button type="submit" class="btn btn-info" data-action="AuthStart_back">Назад</button>
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-success" data-account-login="info" style="display: none">
+            <div class="panel panel-success" data-account-login="info">
                 <div class="panel-heading">
                     <h3 class="panel-title">Информация о вашем аккаунте <a style="float: right; cursor: pointer" data-action="logout">Выйти</a></h3>
                 </div>

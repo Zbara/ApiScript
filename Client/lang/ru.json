@@ -112,6 +112,8 @@
   "langKeys": {
     "local": {
       "common": "Zbara Stats - Настройки",
+      "domain_add_error": "Похоже такой домен уже добавлен.",
+      "domain_add": "Домен успешно добавлен на мониторинг.",
       "global_date": [
         "",
         "{day} {month} {year}",

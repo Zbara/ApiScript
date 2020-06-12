@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zbara Stats - Настройки</title>
+    <meta charset="utf8">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="css/options.min.css" type="text/css"/>
+    <link rel="stylesheet" href="css/options.min.css" type="text/css"/>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/bootstrap-switch.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/login.js"></script>
+    <style>
+        .modal.fade.in {
+            top: 25%;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="container-narrow">
+    <div class="note note-success">
+        <p data-lang-id="account-title"></p>
+    </div>
+    <h4 data-lang-id="account-title-login">Войти в свой аккаунт</h4>
+    <div class="form-horizontal" role="form" data-id="account-login">
+        <div class="alert display-hide" id="alert"></div>
+        <div class="form-group">
+            <label for="email" class="col-md-2 control-label">Email</label>
+            <div class="col-md-4">
+                <input type="email" class="form-control" id="email" placeholder="Email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-md-2 control-label">Пароль</label>
+            <div class="col-md-4">
+                <input type="password" class="form-control" id="password" placeholder="Password">
+            </div>
+        </div>
+        <div class="form-group right">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-info" data-action="AuthStart">Войти</button>
+                <button type="submit" class="btn btn-info" data-action="RegPage">Регистрация</button>
+            </div>
+        </div>
+    </div>
+    <div class="form-horizontal" role="form" data-id="account-reg" style="display: none">
+        <div class="alert display-hide" id="alertReg"></div>
+        <div class="form-group">
+            <label for="join_login" class="col-md-3 control-label">Имя пользователя</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" id="join_login" placeholder="Имя пользователя">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="join_email" class="col-md-3 control-label">Email</label>
+            <div class="col-md-4">
+                <input type="email" class="form-control" id="join_email" placeholder="Email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="join_pass" class="col-md-3 control-label">Пароль</label>
+            <div class="col-md-4">
+                <input type="password" class="form-control" id="join_pass" placeholder="Password">
+            </div>
+        </div>
+        <div class="form-group right">
+            <div class="col-md-offset-3 col-md-10">
+                <button type="submit" class="btn btn-info" data-action="RegStart">Регистрация</button>
+                <button type="submit" class="btn btn-info" data-action="AuthStart_back">Назад</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
