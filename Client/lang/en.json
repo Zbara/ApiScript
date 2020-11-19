@@ -2,11 +2,11 @@
   "lang": [
     {
       "key": "common",
-      "text": "Zbara Stats-Settings"
+      "text": "Zbara Stats-ad Analysis"
     },
     {
       "key": "note-general",
-      "text": "extension basic settings."
+      "text": "Basic extension settings."
     },
     {
       "key": "text-stats",
@@ -18,15 +18,15 @@
     },
     {
       "key": "text-advanced",
-      "text": "advanced settings"
+      "text": "Settings"
     },
     {
       "key": "text-account",
-      "text": "Accounts"
+      "text": "Account"
     },
     {
-      "key": "other-name",
-      "text": "sin extension"
+      "key": "lang-name",
+      "text": "language extension"
     },
     {
       "key": "count-stats",
@@ -34,11 +34,11 @@
     },
     {
       "key": "count-stats-help",
-      "text": "how many times do the script checks on the page  pminimu 1, maximum 20, default 5"
+      "text": "how many checks will the script perform on the page minimum 1, maximum 20, default 5"
     },
     {
       "key": "power",
-      "text": "including"
+      "text": "Enable"
     },
     {
       "key": "power-help",
@@ -54,15 +54,15 @@
     },
     {
       "key": "info-panel-body",
-      "text": "on this page, all notifications of advertising are selected by statistics, for all the work of the\n extension. "
+      "text": "this page displays all the statistics of advertising notifications, for all the time of the\n extension. "
     },
     {
       "key": "ads-count",
-      "text": "ads Displayed"
+      "text": "displayed ads"
     },
     {
       "key": "my-ads-title",
-      "text": "the number of Ads that were displayed"
+      "text": "Ads that were shown to You"
     },
     {
       "key": "table-domain-stats",
@@ -74,15 +74,19 @@
     },
     {
       "key": "table-time-stats",
-      "text": "Time will tell"
+      "text": "display Time"
     },
     {
       "key": "advanced-title-sites",
-      "text": "Vedic monitoring on the site"
+      "text": "Sites that we monitor"
+    },
+    {
+      "key": "advanced-table-messages",
+      "text": "Analysis"
     },
     {
       "key": "advanced-title-placeholder",
-      "text": "with a remarkable imagination, www.example.com",
+      "text": "for example, www.example.com",
       "type": "placeholder"
     },
     {
@@ -95,15 +99,112 @@
     },
     {
       "key": "advanced-table-no-sites",
-      "text": "You, do not smoke, added on the site."
+      "text": "You haven't added sites for monitoring yet."
     },
     {
       "key": "account-title",
-      "text": "your personal account, that poor account? For syncing your settings, but the extension can work as well."
+      "text": "Your personal account, why do I need an account? To sync your settings, but the extension can work like this."
+    },
+    {
+      "key": "stats-title",
+      "text": "this page displays all the statistics of advertising notifications for all the time the extension is running."
+    },
+    {
+      "key": "account-title-info",
+      "text": "Information about your account "
+    },
+    {
+      "key": "account-title-exit",
+      "text": "Exit"
+    },
+    {
+      "key": "account-number",
+      "text": "account Number "
+    },
+    {
+      "key": "account-user-name",
+      "text": "user Name "
+    },
+    {
+      "key": "account-user-email",
+      "text": "Email "
+    },
+    {
+      "key": "account-server-info",
+      "text": "Last sync with the server "
+    },
+    {
+      "key": "account-title-login",
+      "text": "Log in to your account "
+    },
+    {
+      "key": "login-email",
+      "text": "Email"
+    },
+    {
+      "key": "login-pass",
+      "text": "Password"
+    },
+    {
+      "key": "login-start",
+      "text": "log In"
+    },
+    {
+      "key": "login-reg",
+      "text": "Registration"
+    },
+    {
+      "key": "login-email-placeholder",
+      "text": "Email",
+      "type": "placeholder"
+    },
+    {
+      "key": "login-pass-placeholder",
+      "text": "Password",
+      "type": "placeholder"
+    },
+    {
+      "key": "reg-email-placeholder",
+      "text": "Email",
+      "type": "placeholder"
+    },
+    {
+      "key": "reg-pass-placeholder",
+      "text": "Password",
+      "type": "placeholder"
+    },
+    {
+      "key": "reg-login-placeholder",
+      "text": "user Name",
+      "type": "placeholder"
+    },
+    {
+      "key": "reg-login",
+      "text": "user Name"
+    },
+    {
+      "key": "reg-email",
+      "text": "Email"
+    },
+    {
+      "key": "reg-pass",
+      "text": "Password"
+    },
+    {
+      "key": "reg-send",
+      "text": "Registration"
+    },
+    {
+      "key": "reg-back",
+      "text": "Back"
     },
     {
       "type": "title",
-      "text": "Zbara Stats - Settings"
+      "text": "Zbara Stats-Settings"
+    },
+    {
+      "key": "advanced-table-time",
+      "text": "Added"
     },
     {
       "type": "initSystem"
@@ -112,17 +213,30 @@
   "langKeys": {
     "local": {
       "common": "Zbara Stats-Settings",
+      "domain_add_error": "It looks like this domain has already been added.",
+      "domain_add": "The domain was successfully added to monitoring.",
+      "login_exit": "are you sure you want to log out?",
+      "login_exit_messages": "log Out of your account, the extension will not work.",
+      "login_exit_yes": "log Out",
+      "login_exit_no": "Stay",
+      "sites_delete_title": "Delete",
+      "sites_delete_messages": "Delete a site from monitoring?",
+      "sites_delete_yes": "Delete",
+      "sites_delete_no": "Leave",
+      "auth_start": "Enter",
+      "reg_account": "account Registration",
+      "login_title": "Log in to your account",
       "global_date": [
         "",
         "{day} {month} {year}",
         "yesterday",
-        "touch",
+        "today",
         "tomorrow"
       ],
       "global_hours_ago": [
         "",
-        "%s hours ago",
         "%s an hour ago",
+        "%s hours ago",
         "%s hours ago"
       ],
       "global_just_now": "just now",
@@ -142,29 +256,29 @@
         "",
         "{day} {month}",
         "yesterday",
-        "touch",
+        "today",
         "tomorrow"
       ],
       "global_short_date_time": [
         "",
         "{day} {month} in {hour}:{minute}",
         "yesterday at {hour}:{minute}",
-        "in {hour}:{minute}",
+        "today in {hour}:{minute}",
         "tomorrow at {hour}: {minute}"
       ],
       "global_short_date_time_l": [
         "",
         "{day} {month} in {hour}:{minute}",
         "yesterday at {hour}:{minute}",
-        "in {hour}:{minute}",
+        "today in {hour}: {minute}",
         "tomorrow at {hour}: {minute}"
       ],
       "global_word_hours_ago": [
         "",
         "an hour ago",
-        "an hour or two ago",
+        "two hours ago",
         "three hours ago",
-        "four hours ago.",
+        "four hours ago",
         "five hours ago"
       ],
       "global_word_mins_ago": [
@@ -186,7 +300,7 @@
       "months_of": {
         "1": "January",
         "2": "February",
-        "3": "March",
+        "3": "Martha",
         "4": "April",
         "5": "may",
         "6": "June",
@@ -203,13 +317,13 @@
         "3": "Mar",
         "4": "APR",
         "5": "may",
-        "6": "Noah",
+        "6": "June",
         "7": "Jul",
         "8": "Aug",
-        "9": "sedan",
+        "9": "sen",
         "10": "Oct",
-        "11": "tired",
-        "12": "to"
+        "11": "Nov.",
+        "12": "Dec"
       }
     }
   }

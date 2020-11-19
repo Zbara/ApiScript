@@ -13,11 +13,12 @@ class Config
     public $db_name;
     public $start;
     public $auth_salt;
+    public $dev = 'config';
 
     public function __construct($config)
     {
         try {
-            if (!is_readable(include_dir . '/inc/config.php'))
+            if (!is_readable(include_dir . '/inc/' . $this->dev. '.php'))
                 throw new ZbaraException(ErrorCode::CONFIG_ERROR, ['msg' => 'Файл не найден.']);
 
             foreach ($config as $k => $item) {

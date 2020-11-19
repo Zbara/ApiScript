@@ -59,6 +59,14 @@ class Routers
             'adsDeleteSites.set' => [
                 'controller' => '\Method\Ads\adsDeleteSites',
                 'session' => true
+            ],
+            'adsSiteMessages.get' => [
+                'controller' => '\Method\Ads\adsSiteGet',
+                'session' => true
+            ],
+            'adsDom.get' => [
+                'controller' => '\Method\Ads\adsDom',
+                'session' => false
             ]
         ];
         return isset($this->method) ? $methods[$this->method] : null;

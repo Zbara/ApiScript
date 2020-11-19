@@ -1,31 +1,64 @@
 /**
- * @param name
  * @param id
- * @param text
+ * @param name
+ * @param time
+ * @param messages
  * @returns {string}
  */
-function checkSitesTemplete(id, name, text) {
+function checkSitesTemplete(id, name, time, messages){
     return '                <tr data-item-id="Id_' + id + '">\n' +
         '                    <td>' + id + '</td>\n' +
         '                    <td>' + name + '</td>\n' +
-        // '                    <td>' + text + '</td>\n' +
+        '                    <td>' + messages + '</td>\n' +
+        '                    <td>' + time + '</td>\n' +
         '                    <td style="text-align:center;width:120px;">\n' +
-        '                        <button class="btn btn-mini  btn-xs btn-danger" data-action="RemoveDelete" data-id="' + id + '">\n' +
-        '                            Удалить\n' +
-        '                        </button>\n' +
+        '                        <button class="btn btn-mini  btn-xs btn-danger" data-action="RemoveDelete" data-id="' + id + '">' + parent.langData.langKeys.local.sites_delete_title + '</button>\n' +
         '                    </td>\n' +
         '                </tr>'
 }
 
-
+/***
+ * @param id
+ * @param host
+ * @param messages
+ * @param time
+ * @returns {string}
+ */
 function checkMassagesListTemplete(id, host, messages, time) {
     return '                <tr data-item-id="Id_' + id + '">\n' +
         '                    <td>' + id + '</td>\n' +
         '                    <td>' + host + '</td>\n' +
-        '                    <td>' + messages + '</td>\n' +
+        '                    <td><span  data-toggle="tooltip" data-placement="top" title="' + messages + '">' + messages.slice(0,50)  + '</span></td>\n' +
         '                    <td>' + time + '</td>\n' +
         '                </tr>'
 }
+function pie(stats) {
+    let config = {
+        type: 'pie',
+        data: {
+            datasets: [{
+                data: stats.stats,
+                backgroundColor: [
+                    window.chartColors.red,
+                    window.chartColors.orange,
+                    window.chartColors.yellow,
+                    window.chartColors.green,
+                    window.chartColors.blue,
+                ],
+                label: 'Dataset 1'
+            }],
+            labels: stats.domain
+        },
+        options: {
+            responsive: true
+        }
+    };
+    let ctx = document.getElementById('canvasPie').getContext('2d');
+    window.myLine = new Chart(ctx, config);
+}
+
+
+
 $(function () {
     /** настройки */
     let setting = JSON.parse(((localStorage['settings']) ? localStorage['settings'] : '{}'));
@@ -38,11 +71,8 @@ $(function () {
 
     /** загрузка списка языков **/
     for (let i in langList) {
-        $('#lang').append('<option value="' + langList[i].code + '" id="' + langList[i].code + '">' + langList[i].name + '</option>');
+        $('#langUser').append('<option value="' + langList[i].code + '" id="' + langList[i].code + '">' + langList[i].name + '</option>');
     }
-
-
-
     /** заугрка языков */
     lang(parent.setting.lang, 1);
 });
@@ -63,7 +93,21 @@ function init() {
     $('[data-action="NewSiteLink"]').click(function () {
         server.newLink();
     });
+
+    $('[data-action="modelNewSite"]').click(function () {
+        server.newLinkFull();
+    });
+
+    $('[data-action="domainMessages"]').click(function () {
+        $('#newAdsSitesModal').modal().show();
+    });
+
+    $('[data-action="pieStart"]').click(function () {
+        $('#pieStartModal').modal().show();
+    });
 }
+
+
 let server = {
     sites: function () {
         ajax.post('adsSites.get', ajax.generate_request({
@@ -72,12 +116,18 @@ let server = {
             onDone: function (data) {
                 let sites = data.sites;
 
+                delete localStorage.adsSites;
+
                 for (let i in sites) {
-                    $('#checkSite_div').append(checkSitesTemplete(sites[i].id, sites[i].domain, sites[i].messages));
+                    $('#checkSite_div').append(checkSitesTemplete(sites[i].id, sites[i].domain, sites[i].date, sites[i].messages));
                 }
                 if (sites.length > 0) {
                     $('#domainListDiv').show();
                 }
+
+                /** обновляем хранилище **/
+                localStorage['adsSites'] = JSON.stringify(sites);
+
                 server.deleteSites();
             },
             onFail: function (msg) {
@@ -91,11 +141,21 @@ let server = {
             onDone: function (data) {
                 let ads = data.ads;
 
+                delete localStorage.adsMessages;
+
                 $('#adsCount').html(ads.length);
 
                 for (let i in ads) {
                     $('#UserAds_user').append(checkMassagesListTemplete(ads[i].id, ads[i].domain, ads[i].messages, ads[i].time));
                 }
+
+
+                $('[data-toggle="tooltip"]').tooltip();
+
+                pie(data.pie);
+
+                /** обновляем хранилище **/
+                localStorage['adsMessages'] = JSON.stringify(ads);
             },
             onFail: function (msg) {
             }
@@ -139,7 +199,11 @@ let server = {
         });
     },
     settingMain: function (data) {
-        $('#lang').selectpicker({'width': '300px'}).selectpicker('val', data.lang);
+        $("#ads_new_model").select2({
+            tags: data.tags
+        });
+
+        $('#langUser').selectpicker({'width': '300px'}).selectpicker('val', data.lang);
         $('#BlockCheckCount').spinner({value: parseInt(data.count), min: 1, max: 20});
         $('.make-switch').bootstrapSwitch('state', data.power);
     },
@@ -163,7 +227,7 @@ let server = {
         });
     },
     saveSettings: function () {
-        let lang = $('#lang').val();
+        let lang = $('#langUser').val();
         let count = $('#CheckCount').val();
         let power = $('.make-switch').bootstrapSwitch('state');
 
@@ -188,16 +252,16 @@ let server = {
     },
     userLogout: function () {
         bootbox.confirm({
-            title: "Вы уверены что хотите выйти?",
+            title: parent.langData.langKeys.local.login_exit,
             size: 'small',
-            message: "Выйдя с аккаунта синхронизация будет разорванная, выйти?",
+            message: parent.langData.langKeys.local.login_exit_messages,
             buttons: {
                 confirm: {
-                    label: 'Выйти',
+                    label: parent.langData.langKeys.local.login_exit_yes,
                     className: 'btn-danger'
                 },
                 cancel: {
-                    label: 'Остаться',
+                    label: parent.langData.langKeys.local.login_exit_no,
                     className: 'btn-success'
                 }
             },
@@ -210,9 +274,7 @@ let server = {
         });
     },
     newLink: function () {
-        let url = $('#siteLink'),
-            msg = $('#msg'),
-            rnd = getRandomInt(100);
+        let url = $('#siteLink');
 
         if (!url.val() || !checkURL(url.val())) {
             return setErrorInputMsg('siteLink');
@@ -229,9 +291,8 @@ let server = {
                 }, 5000);
 
                 url.val('');
-                msg.val('');
 
-                $('#checkSite_div').prepend(checkSitesTemplete(data.id, data.domain, ''));
+                $('#checkSite_div').prepend(checkSitesTemplete(data.id, data.domain, data.time, data.messages));
 
                 server.deleteSites();
             },
@@ -248,16 +309,16 @@ let server = {
         $('[data-action="RemoveDelete"]').click(function () {
             let id = parseInt($(this).attr("data-Id"));
             bootbox.confirm({
-                title: "Удалить?",
+                title:  parent.langData.langKeys.local.sites_delete_title,
                 size: 'small',
-                message: "Удалить сайт с мониторинга?",
+                message: parent.langData.langKeys.local.sites_delete_messages,
                 buttons: {
                     confirm: {
-                        label: 'Удалить',
+                        label: parent.langData.langKeys.local.sites_delete_yes,
                         className: 'btn-danger'
                     },
                     cancel: {
-                        label: 'Отменить',
+                        label: parent.langData.langKeys.local.sites_delete_no,
                         className: 'btn-success'
                     }
                 },
@@ -278,6 +339,52 @@ let server = {
                     }
                 }
             });
+        });
+    },
+    newLinkFull: function(){
+        let url = $('#domain_model_name'),
+            messages = $('#ads_new_model');
+
+        if (!url.val() || !checkURL(url.val())) {
+            return setErrorInputMsg('domain_model_name');
+        }
+        if (!messages.val()) {
+            $('#alertAddDomainModel').addClass('alert-danger').show().html('Введите ключевые слова');
+
+            setTimeout(function () {
+                $('#alertAddDomainModel').hide().removeClass('alert-danger');
+            }, 5000);
+
+            return false;
+        }
+        ajax.post('adsNewSite.set', ajax.generate_request({
+            domain: url.val(),
+            messages: messages.val(),
+            access_token: localStorage.access_token
+        }), {
+            onDone: function (data) {
+                $('#alertAddDomainModel').addClass('alert-success').show().html(parent.langData.langKeys.local.domain_add);
+
+                setTimeout(function () {
+                    $('#alertAddDomain').hide().removeClass('alert-success');
+                }, 5000);
+
+                url.val('');
+
+                $('#checkSite_div').prepend(checkSitesTemplete(data.id, data.domain, data.time, data.messages));
+
+                server.deleteSites();
+
+                $('#newAdsSitesModal').modal('hide');
+
+            },
+            onFail: function (error) {
+                $('#alertAddDomainModel').addClass('alert-danger').show().html(error.error.messages);
+
+                setTimeout(function () {
+                    $('#alertAddDomainModel').hide().removeClass('alert-danger');
+                }, 5000);
+            }
         });
     }
 };

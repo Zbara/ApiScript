@@ -49,7 +49,4 @@ class Login extends BaseMethod
             return ['error' => 'invalid_client', 'error_description' => 'client_id is incorrect'];
         }
     }
-
-
-
 }

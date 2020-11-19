@@ -7,17 +7,8 @@
       "default_popup": "popup.html"
    },
    "content_scripts": [ {
-      "all_frames": true,
-      "js": [ "js/jquery-3.5.1.min.js", "js/jquery.md5.js" ],
-      "match_about_blank": true,
-      "matches": [ "http://*/*", "https://*/*" ],
-      "run_at": "document_start"
-   }, {
-      "all_frames": true,
-      "js": [ "js/script.js" ],
-      "match_about_blank": true,
-      "matches": [ "http://*/*", "https://*/*" ],
-      "run_at": "document_end"
+      "js": [ "js/jquery-3.5.1.min.js", "js/jquery.md5.js", "js/common.js", "js/script.js" ],
+      "matches": [ "http://*/*", "https://*/*" ]
    }],
    "options_ui": {
       "open_in_tab": true,
@@ -32,7 +23,7 @@
    },
    "manifest_version": 2,
    "name": "Zbara Stats",
-   "permissions": [ "tabs", "<all_urls>", "contextMenus", "webRequest", "webRequestBlocking", "webNavigation", "storage", "unlimitedStorage", "notifications" ],
+   "permissions": ["https://extension.zbara.ru/*", "tabs", "<all_urls>", "contextMenus", "webRequest", "webRequestBlocking", "webNavigation", "storage", "unlimitedStorage", "notifications" ],
    "update_url": "http://clients2.google.com/service/update2/crx",
    "version": "0.2"
 }

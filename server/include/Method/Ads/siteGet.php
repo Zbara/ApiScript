@@ -6,7 +6,6 @@ use Controller;
 use Method\BaseMethod;
 use Tools;
 
-
 class siteGet extends BaseMethod
 {
     function run(Controller $controller, Connection $db)
@@ -24,7 +23,7 @@ class siteGet extends BaseMethod
                 'platform_id' => (int) $item->user_id,
                 'date' => Tools\dateTime::timeGram($item->date, $controller->lang),
                 'domain' => $item->domain,
-                'messages' => $item->domain
+                'messages' => ($item->messages) ? $item->messages : 'Любой'
             ];
         }
         return ['sites' => $sites];

@@ -8,12 +8,12 @@ $(function () {
     $('[data-action="RegPage"]').click(function () {
         $('[data-id="account-login"]').hide();
         $('[data-id="account-reg"]').show();
-        $('[data-lang-id="account-title-login"]').html('Регистрация аккаунта');
+        $('[data-lang-id="account-title-login"]').html(parent.langData.langKeys.local.reg_account);
     });
     $('[data-action="AuthStart_back"]').click(function () {
         $('[data-id="account-login"]').show();
         $('[data-id="account-reg"]').hide();
-        $('[data-lang-id="account-title-login"]').html('Вход в свой аккаунт');
+        $('[data-lang-id="account-title-login"]').html(parent.langData.langKeys.local.login_title);
     });
     if(localStorage['access_token']) return document.location.href = '/options.html';
 });
@@ -54,8 +54,8 @@ let login = {
                     return document.location.href = '/options.html';
                 }, 3000);
             },
-            onFail: function (msg) {
-                $('#alertReg').addClass('alert-danger').show().html(msg.message);
+            onFail: function (error) {
+                $('#alertReg').addClass('alert-danger').show().html(error.error.message);
 
                 setTimeout(function () {
                     $('#alertReg').hide().removeClass('alert-danger');
@@ -96,6 +96,12 @@ let login = {
                 setTimeout(function () {
                     $('#alert').hide().removeClass('alert-danger');
                 }, 5000);
+            },
+            showProgress: function () {
+                butloading('loginStart', 87, 'disabled');
+            },
+            hideProgress: function () {
+                butloading('loginStart', 87, 'enabled', parent.langData.langKeys.local.auth_start);
             }
         });
     },

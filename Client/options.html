@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <title>Zbara Stats - Настройки</title>
     <meta charset="utf8">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
+          type="text/css"/>
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css"/>
     <link rel="stylesheet" href="css/options.min.css" type="text/css"/>
@@ -12,7 +13,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/bootstrap-switch.min.js"></script>
-
+    <script src="js/Chart.min.js"></script>
     <script src="js/common.js"></script>
     <script src="js/options.js"></script>
     <style>
@@ -24,6 +25,9 @@
 <body>
 <div class="container-zbara">
     <h4 data-lang-id="common"></h4>
+    <h4><a style="float: right; cursor: pointer; margin-top: -27px " data-action="logout"
+           data-lang-id="account-title-exit">Выйти</a>
+    </h4>
 </div>
 <div class="container-narrow">
     <ul class="nav nav-tabs" id="myTab">
@@ -50,18 +54,17 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label" data-lang-id="lang-name"></label>
                         <div class="col-md-3">
-                            <select class="form-control" id="lang"></select>
+                            <select class="form-control" id="langUser"></select>
                         </div>
                     </div>
                 </div>
-
-
                 <div class="form-group">
                     <label class="control-label col-md-3" data-lang-id="count-stats"></label>
                     <div class="col-md-9">
                         <div id="BlockCheckCount">
                             <div class="input-group" style="width:150px;">
-                                <input type="text" class="spinner-input form-control" id="CheckCount" maxlength="3" readonly>
+                                <input type="text" class="spinner-input form-control" id="CheckCount" maxlength="3"
+                                       readonly>
                                 <div class="spinner-buttons input-group-btn">
                                     <button type="button" class="btn btn-default spinner-up">
                                         <i class="fa fa-angle-up"></i>
@@ -78,13 +81,16 @@
                 <div class="form-group">
                     <label class="control-label col-md-3" data-lang-id="power"></label>
                     <div class="col-md-9">
-                        <input type="checkbox" class="make-switch" checked data-on-color="success" data-off-color="warning"  value="0">
+                        <input type="checkbox" class="make-switch" checked data-on-color="success"
+                               data-off-color="warning" value="0">
                         <span class="help-block" data-lang-id="power-help"></span>
                     </div>
                 </div>
 
                 <div class="col-md-offset-3 col-md-9">
-                    <button type="submit" class="btn btn-success" data-action="SaveSettings"><i class="fa fa-check"></i> <l data-lang-id="save-general"></l></button>
+                    <button type="submit" class="btn btn-success" data-action="SaveSettings"><i class="fa fa-check"></i>
+                        <l data-lang-id="save-general"></l>
+                    </button>
                 </div>
             </div>
         </div>
@@ -96,15 +102,25 @@
                     <h3 class="panel-title" data-lang-id="info-menu-stats"></h3>
                 </div>
                 <div class="panel-body">
-                    <p>
-                        На этой странице отображена вся статистика рекламных оповещений, за все врмея работы
-                        расширение.
-                    </p>
+                    <p data-lang-id="stats-title"></p>
                 </div>
                 <!-- List group -->
                 <ul class="list-group">
                     <li class="list-group-item">
                         <label data-lang-id="ads-count"></label> <span class="badge badge-default" id="adsCount"></span>
+                    </li>
+                    <li class="list-group-item">
+                        <label data-lang-id="ads-stats-action">Графики</label>
+                        <div class="btn-group pull-right">
+                            <button type="button" class="btn btn-fit-height default dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+                                Действие <i class="fa fa-angle-down"></i>
+                            </button>
+                            <ul class="dropdown-menu pull-right" role="menu">
+                                <li>
+                                    <a data-action="pieStart" style="cursor: pointer">Круговая диаграмма</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -112,7 +128,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title" data-lang-id="my-ads-title"></h3>
                 </div>
-                <table class="table table-condensed table-hover">
+                <table class="table table-condensed table-hover" >
                     <thead>
                     <tr>
                         <th></th>
@@ -127,30 +143,32 @@
         </div>
         <div class="tab-pane" id="advancedPage">
             <label><b data-lang-id="advanced-title-sites"></b></label>
-
             <div class="alert display-hide" id="alertAddDomain"></div>
-
-
             <div class="input-group">
-                <input type="text" style="width: 568px" class="form-control" id="siteLink" data-lang-id="advanced-title-placeholder">
-<!--                             <input type="text"  style="width: 568px" class="form-control" id="msg" placeholder="Рекламное уведомление">.-->
-                <span class="input-group-btn">
-                    <button class="btn btn-success" type="button" data-action="NewSiteLink" data-lang-id="advanced-add-buttons">Добавить</button>
-                </span>
+                <input type="text" class="form-control" id="siteLink" data-lang-id="advanced-title-placeholder">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-success" tabindex="-1" data-action="NewSiteLink"
+                            data-lang-id="advanced-add-buttons">
+                    </button>
+                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+                        <i class="fa fa-angle-down"></i>
+                    </button>
+                    <ul class="dropdown-menu pull-right" role="menu">
+                        <li>
+                            <a data-action="domainMessages" style="cursor: pointer">Анализ по тексту</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <br/>
             <table class="table table-condensed table-hover" style="display: none" id="domainListDiv">
                 <thead>
                 <tr>
-                    <th>
-                        #
-                    </th>
+                    <th>#</th>
                     <th data-lang-id="advanced-table-domain"></th>
-                    <!--                    <th>-->
-                    <!--                        Сообщение-->
-                    <!--                    </th>-->
-                    <th>
-                    </th>
+                    <th data-lang-id="advanced-table-messages"></th>
+                    <th data-lang-id="advanced-table-time"></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody id="checkSite_div"></tbody>
@@ -162,59 +180,97 @@
         <div class="tab-pane" id="account">
             <div class="panel panel-success" data-account-login="info">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Информация о вашем аккаунте <a style="float: right; cursor: pointer" data-action="logout">Выйти</a></h3>
+                    <h3 class="panel-title" data-lang-id="account-title-info">
+                    </h3>
                 </div>
                 <ul class="list-group">
-                    <li class="list-group-item">Номер аккаунта <span class="badge badge-success" data-account-user="id"></span>
+                    <li class="list-group-item">
+                        <span data-lang-id="account-number"></span>
+                        <span class="badge badge-success" data-account-user="id"></span>
                     </li>
                 </ul>
                 <ul class="list-group">
-                    <li class="list-group-item">Имя пользователя <span class="badge badge-success" data-account-user="login"></span>
+                    <li class="list-group-item">
+                        <span data-lang-id="account-user-name"></span>
+                        <span class="badge badge-success" data-account-user="login"></span>
                     </li>
                 </ul>
                 <ul class="list-group">
-                    <li class="list-group-item">Email <span class="badge badge-success" data-account-user="email"></span>
+                    <li class="list-group-item">
+                        <span data-lang-id="account-user-email"></span>
+                        <span class="badge badge-success" data-account-user="email"></span>
                     </li>
                 </ul>
-
                 <ul class="list-group">
-                    <li class="list-group-item">Последняя синхронизация с сервером <span class="badge badge-success" data-account-user="server"></span>
+                    <li class="list-group-item">
+                        <span data-lang-id="account-server-info"></span>
+                        <span class="badge badge-success" data-account-user="server"></span>
                     </li>
                 </ul>
             </div>
-
-
         </div>
     </div>
 </div>
 
+<div id="newAdsSitesModal" class="modal fade" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Добавление нового сайта</h4>
+            </div>
+            <div class="modal-body form">
+                <div class="form-horizontal form-row-seperated">
+                    <div style="padding: 5px">
+                        <div class="alert display-hide" id="alertAddDomainModel"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Доменное имя</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-cloud"></i>
+                                </span>
+                                <input type="text" id="domain_model_name"
+                                       class="form-control round-right"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4">Ключевые слова</label>
+                        <div class="col-md-8">
+                            <input type="hidden" id="ads_new_model" class="form-control select2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                <button type="button" class="btn btn-success" data-action="modelNewSite"><i class="fa fa-check"></i> Добавить</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="pieStartModal" class="modal fade" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Крговая диаграма</h4>
+            </div>
+            <div class="modal-body form">
+                <div>
+                    <canvas id="canvasPie"></canvas>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="footer">
-    <p>2020 © Zbarazskiy</p>
-</div>
-
-<div id="groupModalWindow" class="modal hide fade">
-    <div class="modal-body">
-        <label for="GroupName"><b>Group name</b></label>
-        <input class="input-block-level" id="GroupName" name="GroupName" type="text" value=""/>
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cancel</button>
-        <button data-action="SaveGroup" class="btn btn-success">Save</button>
-    </div>
-</div>
-
-<div id="userAgentModalWindow" class="modal hide fade">
-    <div class="modal-body">
-        <input id="UserAgentId" type="hidden" value=""/>
-        <label for="UserAgentName"><b>Имя фильтра</b></label>
-        <input class="input-block-level" id="UserAgentName" name="UserAgentName" type="text" value=""/>
-        <label for="UserAgentString"><b>Фильтр</b></label>
-        <input class="input-block-level" id="UserAgentString" name="UserAgentString" type="text" value=""/>
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cancel</button>
-        <button data-action="SaveUserAgent" class="btn btn-success">Save</button>
-    </div>
+    <p>2020 © Zbara Dev</p>
 </div>
 </body>
 </html>

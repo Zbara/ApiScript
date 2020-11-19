@@ -10,6 +10,15 @@ let parent = {
     setting: {},
     langData: {}
 };
+window.chartColors = {
+    red: 'rgb(255, 99, 132)',
+    orange: 'rgb(255, 159, 64)',
+    yellow: 'rgb(255, 205, 86)',
+    green: 'rgb(75, 192, 192)',
+    blue: 'rgb(54, 162, 235)',
+    purple: 'rgb(153, 102, 255)',
+    grey: 'rgb(201, 203, 207)'
+};
 
 /*
  * @param lang
@@ -126,7 +135,7 @@ let ajax = {
         method = method.split(',');
         $.ajax({
             type: (method[1]) ? method[1] : 'POST',
-            url: 'http://extension.zbara.ru/method/' + method[0],
+            url: 'https://extension.zbara.ru/method/' + method[0],
             dataType: 'JSON',
             data: post,
             success: function (response) {
@@ -146,6 +155,7 @@ let ajax = {
     generate_request: function (params) {
         params['v'] = 0.3;
         params['lang'] = parent.setting.lang;
+        params['time'] = time();
 
         for (i in params) {
             params[i] = params[i];
@@ -183,6 +193,23 @@ function checkURL(url) {
     var regURLrf = /^(?:(?:https?|ftp|telnet):\/\/(?:[а-я0-9_-]{1,32}(?::[а-я0-9_-]{1,32})?@)?)?(?:(?:[а-я0-9-]{1,128}\.)+(?:рф)|(?! 0)(?:(?! 0[^.]|255)[ 0-9]{1,3}\.){3}(?! 0|255)[ 0-9]{1,3})(?:\/[a-zа-я0-9.,_@%&?+=\~\/-]*)?(?:#[^ \'\"&<>]*)?$/i;
     var regURL = /^(?:(?:https?|ftp|telnet):\/\/(?:[a-z0-9_-]{1,32}(?::[a-z0-9_-]{1,32})?@)?)?(?:(?:[a-z0-9-]{1,128}\.)+(?:com|net|org|mil|edu|arpa|ru|gov|biz|info|aero|inc|name|[a-z]{2})|(?! 0)(?:(?! 0[^.]|255)[ 0-9]{1,3}\.){3}(?! 0|255)[ 0-9]{1,3})(?:\/[a-zа-я0-9.,_@%&?+=\~\/-]*)?(?:#[^ \'\"&<>]*)?$/i;
     return regURLrf.test(url)||regURL.test(url);
+}
+function ge(el) {
+    return (typeof el == 'string' || typeof el == 'number') ? document.getElementById(el) : el;
+}
+
+function time(){
+    return parseInt(new Date().getTime()/1000)
+}
+
+function butloading(i, w, d, t) {
+    if (d == 'disabled') {
+        $('#' + i).html('<div style="width:' + w + 'px;text-align:center;"><img src="/images/loading_mini.gif" alt="" /></div>');
+        ge(i).disabled = true;
+    } else {
+        $('#' + i).html(t);
+        ge(i).disabled = false;
+    }
 }
 
 

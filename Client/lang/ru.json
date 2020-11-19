@@ -2,7 +2,7 @@
   "lang": [
     {
       "key": "common",
-      "text": "Zbara Stats - Настройки"
+      "text": "Zbara Stats - Анализ рекламы"
     },
     {
       "key": "note-general",
@@ -18,7 +18,7 @@
     },
     {
       "key": "text-advanced",
-      "text": "Расширеные настройки"
+      "text": "Настройки"
     },
     {
       "key": "text-account",
@@ -81,6 +81,10 @@
       "text": "Сайты на которых ведем мониторинг"
     },
     {
+      "key": "advanced-table-messages",
+      "text": "Анализ"
+    },
+    {
       "key": "advanced-title-placeholder",
       "text": "например, www.example.com",
       "type": "placeholder"
@@ -102,8 +106,105 @@
       "text": "Ваш личный аккаунт, зачем нужен аккаунт? Для синхронизации ваших настроек, но расширение может работать и так."
     },
     {
+      "key": "stats-title",
+      "text": "На этой странице отображена вся статистика рекламных оповещений, за все врмея работы расширения."
+    },
+    {
+      "key": "account-title-info",
+      "text": "Информация о вашем аккаунте "
+    },
+    {
+      "key": "account-title-exit",
+      "text": "Выйти"
+    },
+    {
+      "key": "account-number",
+      "text": "Номер аккаунта "
+    },
+    {
+      "key": "account-user-name",
+      "text": "Имя пользователя "
+    },
+    {
+      "key": "account-user-email",
+      "text": "Email "
+    },
+    {
+      "key": "account-server-info",
+      "text": "Последняя синхронизация с сервером "
+    },
+    {
+      "key": "account-title-login",
+      "text": "Войти в свой аккаунт "
+    },
+    {
+      "key": "login-email",
+      "text": "Email"
+    },
+    {
+      "key": "login-pass",
+      "text": "Пароль"
+    },
+    {
+      "key": "login-start",
+      "text": "Войти"
+    },
+    {
+      "key": "login-reg",
+      "text": "Регистрация"
+    },
+    {
+      "key": "login-email-placeholder",
+      "text": "Email",
+      "type": "placeholder"
+    },
+    {
+      "key": "login-pass-placeholder",
+      "text": "Пароль",
+      "type": "placeholder"
+    },
+    {
+      "key": "reg-email-placeholder",
+      "text": "Email",
+      "type": "placeholder"
+    },
+    {
+      "key": "reg-pass-placeholder",
+      "text": "Пароль",
+      "type": "placeholder"
+    },
+    {
+      "key": "reg-login-placeholder",
+      "text": "Имя пользователя",
+      "type": "placeholder"
+    },
+    {
+      "key": "reg-login",
+      "text": "Имя пользователя"
+    },
+    {
+      "key": "reg-email",
+      "text": "Email"
+    },
+    {
+      "key": "reg-pass",
+      "text": "Пароль"
+    },
+    {
+      "key": "reg-send",
+      "text": "Регистрация"
+    },
+    {
+      "key": "reg-back",
+      "text": "Назад"
+    },
+    {
       "type": "title",
       "text": "Zbara Stats - Настройки"
+    },
+    {
+      "key": "advanced-table-time",
+      "text": "Добавлен"
     },
     {
       "type": "initSystem"
@@ -114,6 +215,17 @@
       "common": "Zbara Stats - Настройки",
       "domain_add_error": "Похоже такой домен уже добавлен.",
       "domain_add": "Домен успешно добавлен на мониторинг.",
+      "login_exit": "Вы уверены что хотите выйти?",
+      "login_exit_messages": "Выйдня с аккаунта, расширение не будет работать.",
+      "login_exit_yes": "Выйти",
+      "login_exit_no": "Остаться",
+      "sites_delete_title": "Удалить",
+      "sites_delete_messages": "Удалить сайт с мониторинга?",
+      "sites_delete_yes": "Удалить",
+      "sites_delete_no": "Оставить",
+      "auth_start": "Войти",
+      "reg_account": "Регистрация аккаунта",
+      "login_title": "Вход в свой аккаунт",
       "global_date": [
         "",
         "{day} {month} {year}",

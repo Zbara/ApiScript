@@ -2,7 +2,7 @@
   "lang": [
     {
       "key": "common",
-      "text": "Zbara Stats - Налаштування"
+      "text": "Zbara Stats-аналіз реклами"
     },
     {
       "key": "note-general",
@@ -18,15 +18,15 @@
     },
     {
       "key": "text-advanced",
-      "text": "розширені налаштування"
+      "text": "Налаштування"
     },
     {
       "key": "text-account",
       "text": "акаунт"
     },
     {
-      "key": "lang-name",
-      "text": "Розширеннi"
+      "key": "ін.-name",
+      "text": "розширення гріх"
     },
     {
       "key": "count-stats",
@@ -34,7 +34,7 @@
     },
     {
       "key": "count-stats-help",
-      "text": "скільки виконай перевірками сріпт на сторінці мініму 1, максимум 20, за замовчуванням 5"
+      "text": "Cкільки виконай перевірками сріпт на сторінці мінімум 1, максимум 20, за замовчуванням 5"
     },
     {
       "key": "power",
@@ -81,6 +81,10 @@
       "text": "Ведов перевищує моніторингу на сайті"
     },
     {
+      "key": "advanced-table-messages",
+      "text": "аналіз"
+    },
+    {
       "key": "advanced-title-placeholder",
       "text": "незвичайною уявою, www.example.com",
       "type": "placeholder"
@@ -102,8 +106,105 @@
       "text": "ваш особистий аккаунтим, акаунтим той бідний? Для синхронізації ваших налаштувань, але може працювати і так Розширення."
     },
     {
+      "key": "stats-title",
+      "text": "статистика цієї сторінки на рекламних оповіщень відібрала вся, розширення врмея за всі роботи."
+    },
+    {
+      "key": "account-title-info",
+      "text": "інформація про акаунт друга "
+    },
+    {
+      "key": "account-title-exit",
+      "text": "Вийти"
+    },
+    {
+      "key": "account-number",
+      "text": "номер облікового запису "
+    },
+    {
+      "key": "account-user-name",
+      "text": "ім'я користувача "
+    },
+    {
+      "key": "account-user-email",
+      "text": "Email "
+    },
+    {
+      "key": "account-server-info",
+      "text": "остання синхронізація з серверо "
+    },
+    {
+      "key": "account-title-login",
+      "text": "увійдіть до свого облікового запису "
+    },
+    {
+      "key": "login-email",
+      "text": "Email"
+    },
+    {
+      "key": "login-pass",
+      "text": "Пароль"
+    },
+    {
+      "key": "login-start",
+      "text": "входить"
+    },
+    {
+      "key": "login-reg",
+      "text": "реєстрація"
+    },
+    {
+      "key": "login-email-placeholder",
+      "text": "Email",
+      "type": "placeholder"
+    },
+    {
+      "key": "login-pass-placeholder",
+      "text": "Пароль",
+      "type": "placeholder"
+    },
+    {
+      "key": "reg-email-placeholder",
+      "text": "Email",
+      "type": "placeholder"
+    },
+    {
+      "key": "reg-pass-placeholder",
+      "text": "Пароль",
+      "type": "placeholder"
+    },
+    {
+      "key": "reg-login-placeholder",
+      "text": "ім'я користувача",
+      "type": "placeholder"
+    },
+    {
+      "key": "reg-login",
+      "text": "ім'я користувача"
+    },
+    {
+      "key": "reg-email",
+      "text": "Email"
+    },
+    {
+      "key": "reg-pass",
+      "text": "Пароль"
+    },
+    {
+      "key": "reg-send",
+      "text": "реєстрація"
+    },
+    {
+      "key": "reg-back",
+      "text": "Назад"
+    },
+    {
       "type": "title",
       "text": "Zbara Stats - Налаштування"
+    },
+    {
+      "key": "advanced-table-time",
+      "text": "Добавле"
     },
     {
       "type": "initSystem"
@@ -112,6 +213,19 @@
   "langKeys": {
     "local": {
       "common": "Zbara Stats - Налаштування",
+      "domain_add_error": "схоже вже додало такий домен.",
+      "domain_add": "моніторинг додано на домен успішно.",
+      "login_exit": "що ви хочете?",
+      "login_exit_messages": "аккаунта Вийдня с., розширення не буде працювати.",
+      "login_exit_yes": "Лийыч",
+      "login_exit_no": "залишитися",
+      "sites_delete_title": "видалити",
+      "sites_delete_messages": "видалити моніторингу з сайту?",
+      "sites_delete_yes": "видалити",
+      "sites_delete_no": "залишити",
+      "auth_start": "входить",
+      "reg_account": "реєстрації аккаунта",
+      "login_title": "вхід до свого облікового запису",
       "global_date": [
         "",
         "{day} {month} {year}",

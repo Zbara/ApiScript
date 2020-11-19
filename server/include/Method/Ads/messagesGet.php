@@ -27,6 +27,10 @@ class messagesGet extends BaseMethod
                 'messages' => $item->text
             ];
         }
-        return ['ads' => $ads];
+        foreach (array_count_values (array_column($row, 'domain')) as $key => $value){
+            $pieDomain[] = strtoupper($key);
+            $pieCount[] = $value;
+        }
+        return [ 'pie' => ['domain' => $pieDomain, 'stats' => $pieCount], 'ads' => $ads];
     }
 }

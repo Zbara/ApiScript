@@ -12,6 +12,8 @@ use Libs\Request;
 use Libs\Config;
 use Libs\Lang;
 
+
+
 class Controller
 {
     public $session;
@@ -19,7 +21,11 @@ class Controller
     public $Connection;
     public $request;
     public $config;
-    private $headers = [];
+    private $headers = [
+        'Access-Control-Allow-Origin: *',
+        'Access-Control-Allow-Methods: GET, POST, PUT, DELETE',
+        'Access-Control-Allow-Headers: Authorization'
+    ];
 
     /**
      * Controller constructor.
