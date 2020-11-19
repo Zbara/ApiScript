@@ -29,12 +29,11 @@ class Controller
 
     /**
      * Controller constructor.
-     * @param $config
      */
-    public function __construct($config)
+    public function __construct()
     {
         /** @var  $config */
-        $this->config = new Config($config);
+        $this->config = new Config();
 
         /** @var  Connection */
         $this->Connection = new Connection($this->config->host, $this->config->db_user, $this->config->db_pass, $this->config->db_name);
@@ -137,5 +136,5 @@ class Controller
 }
 
 /** @var  $api */
-$api = new Controller($config);
+$api = new Controller();
 $api->run();

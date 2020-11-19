@@ -11,5 +11,4 @@ spl_autoload_register(function ($name) {
 });
 
 /** конфиг **/
-require_once(include_dir . '/inc/config.php');
 require_once(include_dir . '/function.php');
